@@ -2,24 +2,46 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Document Tracker</title>
+    <title>Document Tracker</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Importing the Poppins font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
 </head>
 <body>
-    <div class="container">
-        <h1>Document Tracker</h1>
+    <!-- Background Gradient -->
+    <div id="background-gradient"></div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <!-- Logo (optional) -->
+        <!--
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </div>
+        -->
+
+        <!-- Heading -->
+        <h2>Document Tracker</h2>
+
+        <!-- Form -->
         <form id="nameForm">
-            <input type="text" id="firstNameInput" placeholder="First Name" required>
-            <input type="text" id="lastNameInput" placeholder="Last Name" required>
-            <button type="submit">Check Documents</button>
+            <input type="text" id="firstNameInput" class="input-field" placeholder="First Name" required>
+            <input type="text" id="lastNameInput" class="input-field" placeholder="Last Name" required>
+            <button type="submit" class="btn">Check Documents</button>
         </form>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="error hidden"></div>
+
+        <!-- Document Section -->
         <div id="documentSection" class="hidden">
             <h2 id="welcomeMessage"></h2>
             <div id="buttonList" class="button-list"></div>
         </div>
-        <div id="errorMessage" class="hidden error"></div>
     </div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
