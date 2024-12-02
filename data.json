@@ -1,45 +1,195 @@
 {
     "users": [
         {
-            "firstName": "John",
-            "lastName": "Doe",
+            "firstName": "Marquia",
+            "lastName": "Burroughs",
+            "role": "caregiver",
             "documents": [
                 {
-                    "documentName": "Document A",
-                    "documentURL": "https://example.com/documents/document-a",
+                    "documentName": "Employee Application",
+                    "documentURL": "https://example.com/documents/employee-application",
                     "isSigned": false
                 },
                 {
-                    "documentName": "Document B",
-                    "documentURL": "https://example.com/documents/document-b",
-                    "isSigned": true
+                    "documentName": "Applicant Profile",
+                    "documentURL": "https://example.com/documents/applicant-profile",
+                    "isSigned": false
                 },
                 {
-                    "documentName": "Document C",
-                    "documentURL": "https://example.com/documents/document-c",
+                    "documentName": "Caregiver Competency Checklist",
+                    "documentURL": "https://example.com/documents/caregiver-competency-checklist",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "References List",
+                    "documentURL": "https://example.com/documents/references-list",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Job Description Form",
+                    "documentURL": "https://example.com/documents/job-description-form",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Hepatitis B Declination",
+                    "documentURL": "https://example.com/documents/hepatitis-b-declination",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Flu Vaccine Acceptance",
+                    "documentURL": "https://example.com/documents/flu-vaccine-acceptance",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "VA Sworn Statement",
+                    "documentURL": "https://example.com/documents/va-sworn-statement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Non-Medical Acknowledgement",
+                    "documentURL": "https://example.com/documents/non-medical-acknowledgement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "W-4 Form",
+                    "documentURL": "https://example.com/documents/w-4-form",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Arbitration Agreement",
+                    "documentURL": "https://example.com/documents/arbitration-agreement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Confidentiality & Non-Solicitation Agreement",
+                    "documentURL": "https://example.com/documents/confidentiality-non-solicitation-agreement",
                     "isSigned": false
                 }
             ]
         },
         {
-            "firstName": "Jane",
-            "lastName": "Smith",
+            "firstName": "Melissa",
+            "lastName": "Watson",
+            "role": "caregiver",
             "documents": [
                 {
-                    "documentName": "Document X",
-                    "documentURL": "https://example.com/documents/document-x",
-                    "isSigned": true
+                    "documentName": "Employee Application",
+                    "documentURL": "https://example.com/documents/employee-application",
+                    "isSigned": false
                 },
                 {
-                    "documentName": "Document Y",
-                    "documentURL": "https://example.com/documents/document-y",
-                    "isSigned": true
+                    "documentName": "Applicant Profile",
+                    "documentURL": "https://example.com/documents/applicant-profile",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Caregiver Competency Checklist",
+                    "documentURL": "https://example.com/documents/caregiver-competency-checklist",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "References List",
+                    "documentURL": "https://example.com/documents/references-list",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Job Description Form",
+                    "documentURL": "https://example.com/documents/job-description-form",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Hepatitis B Declination",
+                    "documentURL": "https://example.com/documents/hepatitis-b-declination",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Flu Vaccine Acceptance",
+                    "documentURL": "https://example.com/documents/flu-vaccine-acceptance",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "VA Sworn Statement",
+                    "documentURL": "https://example.com/documents/va-sworn-statement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Non-Medical Acknowledgement",
+                    "documentURL": "https://example.com/documents/non-medical-acknowledgement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "W-4 Form",
+                    "documentURL": "https://example.com/documents/w-4-form",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Arbitration Agreement",
+                    "documentURL": "https://example.com/documents/arbitration-agreement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Confidentiality & Non-Solicitation Agreement",
+                    "documentURL": "https://example.com/documents/confidentiality-non-solicitation-agreement",
+                    "isSigned": false
                 }
             ]
+        },
+        {
+            "firstName": "Ash",
+            "lastName": "Gurung",
+            "role": "registered nurse",
+            "documents": [
+                {
+                    "documentName": "Employee Application",
+                    "documentURL": "https://example.com/documents/employee-application",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Applicant Profile",
+                    "documentURL": "https://example.com/documents/applicant-profile",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Reference List",
+                    "documentURL": "https://example.com/documents/reference-list",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Hepatitis B Declination",
+                    "documentURL": "https://example.com/documents/hepatitis-b-declination",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Flu Vaccine Acceptance",
+                    "documentURL": "https://example.com/documents/flu-vaccine-acceptance",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "VA Sworn Statement",
+                    "documentURL": "https://example.com/documents/va-sworn-statement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "W-4 Form",
+                    "documentURL": "https://example.com/documents/w-4-form",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Arbitration Agreement",
+                    "documentURL": "https://example.com/documents/arbitration-agreement",
+                    "isSigned": false
+                },
+                {
+                    "documentName": "Confidentiality & Non-Solicitation Agreement",
+                    "documentURL": "https://example.com/documents/confidentiality-non-solicitation-agreement",
+                    "isSigned": false
+                }
+            
         },
         {
             "firstName": "Alex",
             "lastName": "Johnson",
+            "role": "office staff",
             "documents": [
                 {
                     "documentName": "Document 1",
