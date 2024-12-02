@@ -17,6 +17,12 @@
       "lastName": "Gurung",
       "role": "Registered Nurse",
       "documents": []
+    },
+    {
+      "firstName": "Aiyana",
+      "lastName": "Watson",
+      "role": "Caregiver",
+      "documents": []
     }
   ]
 }
