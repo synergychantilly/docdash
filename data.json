@@ -5,24 +5,6 @@
       "lastName": "Burroughs",
       "role": "Caregiver",
       "documents": []
-    },
-    {
-      "firstName": "Melissa",
-      "lastName": "Watson",
-      "role": "Caregiver",
-      "documents": []
-    },
-    {
-      "firstName": "Ash",
-      "lastName": "Gurung",
-      "role": "Registered Nurse",
-      "documents": []
-    },
-    {
-      "firstName": "Aiyana",
-      "lastName": "Watson",
-      "role": "Caregiver",
-      "documents": []
     }
   ]
 }
