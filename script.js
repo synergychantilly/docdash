@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (numUnsigned === 0) {
             // If no documents to sign
-            welcomeMessage.textContent = "Awesome! You're all caught up, we'll let you know if we need anything else.";
+            welcomeMessage.textContent = "There are no documents for you to sign at this time. Thank you.";
             buttonList.innerHTML = ''; // Clear any buttons
         } else {
             const documentText = numUnsigned === 1 ? 'document' : 'documents';
