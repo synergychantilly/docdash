@@ -1,28 +1,64 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Replace with your site's font */
+    background-color: #f0f2f5; /* Example background color */
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    color: #333;
 }
 
+/* Header / Navigation */
+.navbar {
+    background-color: #004080; /* Example primary color */
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.navbar-nav {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-item.active .nav-link {
+    border-bottom: 2px solid #ffcc00; /* Example active link indicator */
+}
+
+/* Main Content */
 .container {
-    text-align: center;
-    background: #ffffff;
-    padding: 30px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
     border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-    color: #333;
+    color: #004080; /* Match primary color */
     margin-bottom: 20px;
+    text-align: center;
 }
 
 form {
@@ -31,45 +67,45 @@ form {
     gap: 15px;
 }
 
-input {
-    padding: 10px;
+input[type="text"] {
+    padding: 12px;
     font-size: 16px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+input[type="text"]:focus {
+    border-color: #004080;
     outline: none;
 }
 
-input:focus {
-    border-color: #007bff;
-}
-
-button {
-    padding: 10px;
-    font-size: 16px;
+.button-primary {
+    background-color: #28a745; /* Success or primary action color */
+    color: #fff;
     border: none;
-    background-color: #007bff;
-    color: white;
+    padding: 12px;
+    font-size: 16px;
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-button:hover {
-    background-color: #0056b3;
+.button-primary:hover {
+    background-color: #218838;
 }
 
-#documentSection {
-    margin-top: 20px;
-}
-
-#documentSection.hidden,
-#errorMessage.hidden {
+.hidden {
     display: none;
 }
 
+#documentSection {
+    margin-top: 30px;
+}
+
 #welcomeMessage {
-    color: #333;
-    margin-bottom: 15px;
+    color: #004080;
+    margin-bottom: 20px;
+    text-align: center;
 }
 
 .button-list {
@@ -79,23 +115,77 @@ button:hover {
 }
 
 .document-button {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    border-radius: 4px;
-    cursor: pointer;
+    background-color: #17a2b8; /* Info color */
+    color: #fff;
     text-decoration: none;
-    display: inline-block;
+    padding: 12px;
+    border-radius: 4px;
+    text-align: center;
     transition: background-color 0.3s ease;
 }
 
 .document-button:hover {
-    background-color: #218838;
+    background-color: #138496;
 }
 
 .error {
-    color: red;
-    margin-top: 15px;
+    color: #dc3545; /* Danger color */
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    background-color: #004080;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.social-links {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.social-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.social-links li a:hover {
+    color: #ffcc00;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .navbar-nav .nav-item {
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        display: block;
+        width: 100%;
+        padding: 10px 0;
+    }
 }
