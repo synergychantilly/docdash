@@ -16,7 +16,7 @@ body {
   color: #1d1d2b; /* Black text */
   overflow-x: hidden;
   position: relative;
-  background: url('images/background.png') no-repeat center center fixed;
+  background: url('background.png') no-repeat center center fixed;
   background-size: cover;
   background-color: #f0f0f0;
 }
@@ -191,6 +191,11 @@ p {
   background: #9e9e9e; /* Keep the same color on hover */
   transform: none;
   box-shadow: none;
+}
+
+/* Logo Img Details */
+.logo {
+  max-width: 100px;
 }
 
 /* Responsive Design */
