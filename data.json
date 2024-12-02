@@ -6,15 +6,18 @@
             "documents": [
                 {
                     "documentName": "Document A",
-                    "documentURL": "https://example.com/documents/document-a"
+                    "documentURL": "https://example.com/documents/document-a",
+                    "isSigned": false
                 },
                 {
                     "documentName": "Document B",
-                    "documentURL": "https://example.com/documents/document-b"
+                    "documentURL": "https://example.com/documents/document-b",
+                    "isSigned": true
                 },
                 {
                     "documentName": "Document C",
-                    "documentURL": "https://example.com/documents/document-c"
+                    "documentURL": "https://example.com/documents/document-c",
+                    "isSigned": false
                 }
             ]
         },
@@ -24,11 +27,13 @@
             "documents": [
                 {
                     "documentName": "Document X",
-                    "documentURL": "https://example.com/documents/document-x"
+                    "documentURL": "https://example.com/documents/document-x",
+                    "isSigned": true
                 },
                 {
                     "documentName": "Document Y",
-                    "documentURL": "https://example.com/documents/document-y"
+                    "documentURL": "https://example.com/documents/document-y",
+                    "isSigned": true
                 }
             ]
         },
@@ -38,19 +43,23 @@
             "documents": [
                 {
                     "documentName": "Document 1",
-                    "documentURL": "https://example.com/documents/document-1"
+                    "documentURL": "https://example.com/documents/document-1",
+                    "isSigned": false
                 },
                 {
                     "documentName": "Document 2",
-                    "documentURL": "https://example.com/documents/document-2"
+                    "documentURL": "https://example.com/documents/document-2",
+                    "isSigned": false
                 },
                 {
                     "documentName": "Document 3",
-                    "documentURL": "https://example.com/documents/document-3"
+                    "documentURL": "https://example.com/documents/document-3",
+                    "isSigned": true
                 },
                 {
                     "documentName": "Document 4",
-                    "documentURL": "https://example.com/documents/document-4"
+                    "documentURL": "https://example.com/documents/document-4",
+                    "isSigned": false
                 }
             ]
         }
