@@ -50,10 +50,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayUserDocuments(user);
                 hideSearchForm(); // Hide the search form and title
             } else {
-                showError("Can't find you! Ask the office for assistance.");
+                showError("Hm. We can't seem to find your information. Please notify the office if the issue persists.");
             }
         } catch (error) {
-            showError('An error occurred while processing your request.');
+            showError('Technical error occured, please notify the office if you received this message.');
             console.error(error);
         }
     });
@@ -62,33 +62,36 @@ document.addEventListener('DOMContentLoaded', () => {
         // Calculate the number of unsigned documents
         const unsignedDocuments = user.documents.filter(doc => !doc.isSigned);
         const numUnsigned = unsignedDocuments.length;
-        const documentText = numUnsigned === 1 ? 'document' : 'documents';
-
-        // Update the welcome message
-        welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)}! You have ${numUnsigned} ${documentText} to sign and complete.`;
 
         // Display the role tag
         roleTag.textContent = user.role;
         roleTag.classList.remove('hidden');
 
-        user.documents.forEach(doc => {
-            const button = document.createElement('a');
-            button.textContent = doc.documentName;
-            button.classList.add('document-button');
+        if (numUnsigned === 0) {
+            // If no documents to sign
+            welcomeMessage.textContent = "Awesome! You're all caught up, we'll let you know if we need anything else.";
+            buttonList.innerHTML = ''; // Clear any buttons
+        } else {
+            const documentText = numUnsigned === 1 ? 'document' : 'documents';
+            // Update the welcome message
+            welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)}! You have ${numUnsigned} ${documentText} to sign and complete.`;
 
-            if (doc.isSigned) {
-                // If the document is signed, disable the button
-                button.classList.add('disabled');
-                button.href = '#'; // Disabled buttons won't navigate
-                button.addEventListener('click', (e) => e.preventDefault());
-            } else {
-                // If not signed, link to the document URL
+            // Clear any existing buttons
+            buttonList.innerHTML = '';
+
+            // Display unsigned documents only
+            unsignedDocuments.forEach(doc => {
+                const button = document.createElement('a');
+                button.textContent = doc.documentName;
+                button.classList.add('document-button');
+
+                // Link to the document URL
                 button.href = doc.documentURL;
                 button.target = '_blank'; // Open in new tab
-            }
 
-            buttonList.appendChild(button);
-        });
+                buttonList.appendChild(button);
+            });
+        }
 
         documentSection.classList.remove('hidden');
     }
