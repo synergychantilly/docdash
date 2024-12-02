@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 displayUserDocuments(user);
                 hideSearchForm(); // Hide the search form
             } else {
-                showError('User not found. Please check your input.');
+                showError("We can't find your name. Please ensure it's correctly typed.");
             }
         } catch (error) {
             showError('An error occurred while processing your request.');
@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayUserDocuments(user) {
-        welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)} ${capitalize(user.lastName)}! Here are your documents:`;
+        welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)} ${capitalize(user.lastName)}! Below are the required documents to be signed/completed:`;
 
         user.documents.forEach(doc => {
             const button = document.createElement('a');
@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function hideSearchForm() {
         nameForm.classList.add('hidden');
+        pageTitle.classList.add('hidden');
     }
 
     function showError(message) {
