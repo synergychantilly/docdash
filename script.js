@@ -6,6 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const welcomeMessage = document.getElementById('welcomeMessage');
     const buttonList = document.getElementById('buttonList');
     const errorMessage = document.getElementById('errorMessage');
+    const pageTitle = document.getElementById('pageTitle');
+    const roleTag = document.getElementById('roleTag'); // Reference to the role tag
+
+    // Optional Back Button
+    // const backButton = document.getElementById('backButton');
 
     nameForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -20,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.textContent = '';
         documentSection.classList.add('hidden');
         errorMessage.classList.add('hidden');
+        roleTag.classList.add('hidden'); // Hide role tag initially
 
         if (!firstName || !lastName) {
             showError('Please enter both first and last names.');
@@ -42,9 +48,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (user) {
                 displayUserDocuments(user);
-                hideSearchForm(); // Hide the search form
+                hideSearchForm(); // Hide the search form and title
             } else {
-                showError("We can't find your name. Please ensure it's correctly typed.");
+                showError("Can't find you! Ask the office for assistance.");
             }
         } catch (error) {
             showError('An error occurred while processing your request.');
@@ -53,7 +59,17 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayUserDocuments(user) {
-        welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)} ${capitalize(user.lastName)}! Below are the required documents to be signed/completed:`;
+        // Calculate the number of unsigned documents
+        const unsignedDocuments = user.documents.filter(doc => !doc.isSigned);
+        const numUnsigned = unsignedDocuments.length;
+        const documentText = numUnsigned === 1 ? 'document' : 'documents';
+
+        // Update the welcome message
+        welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)}! You have ${numUnsigned} ${documentText} to sign and complete.`;
+
+        // Display the role tag
+        roleTag.textContent = user.role;
+        roleTag.classList.remove('hidden');
 
         user.documents.forEach(doc => {
             const button = document.createElement('a');
@@ -79,15 +95,33 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function hideSearchForm() {
         nameForm.classList.add('hidden');
-        pageTitle.classList.add('hidden');
+        pageTitle.classList.add('hidden'); // Hide the page title
     }
 
     function showError(message) {
         errorMessage.textContent = message;
         errorMessage.classList.remove('hidden');
+        roleTag.classList.add('hidden'); // Hide role tag if there's an error
     }
 
     function capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
+
+    // Optional Back Button Event Listener
+    /*
+    backButton.addEventListener('click', () => {
+        // Show the search form and title
+        nameForm.classList.remove('hidden');
+        pageTitle.classList.remove('hidden');
+
+        // Hide the document section and role tag
+        documentSection.classList.add('hidden');
+        roleTag.classList.add('hidden');
+
+        // Clear input fields
+        firstNameInput.value = '';
+        lastNameInput.value = '';
+    });
+    */
 });
