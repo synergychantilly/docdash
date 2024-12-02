@@ -42,6 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (user) {
                 displayUserDocuments(user);
+                hideSearchForm(); // Hide the search form
             } else {
                 showError('User not found. Please check your input.');
             }
@@ -53,15 +54,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayUserDocuments(user) {
         welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)} ${capitalize(user.lastName)}! Here are your documents:`;
+
         user.documents.forEach(doc => {
             const button = document.createElement('a');
-            button.href = doc.documentURL;
-            button.target = '_blank'; // Opens the link in a new tab
             button.textContent = doc.documentName;
             button.classList.add('document-button');
+
+            if (doc.isSigned) {
+                // If the document is signed, disable the button
+                button.classList.add('disabled');
+                button.href = '#'; // Disabled buttons won't navigate
+                button.addEventListener('click', (e) => e.preventDefault());
+            } else {
+                // If not signed, link to the document URL
+                button.href = doc.documentURL;
+                button.target = '_blank'; // Open in new tab
+            }
+
             buttonList.appendChild(button);
         });
+
         documentSection.classList.remove('hidden');
+    }
+
+    function hideSearchForm() {
+        nameForm.classList.add('hidden');
     }
 
     function showError(message) {
