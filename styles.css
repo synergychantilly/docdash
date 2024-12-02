@@ -43,6 +43,24 @@ body {
   background: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
 }
 
+/* Role Tag */
+.role-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: #ff6b6b; /* Red accent */
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 0.9em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.role-tag.hidden {
+  display: none;
+}
+
 /* Headings and Paragraphs */
 h2 {
   margin-bottom: 40px; /* Increased spacing */
