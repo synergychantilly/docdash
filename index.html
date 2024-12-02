@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Document Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Document Tracker</h1>
+        <form id="nameForm">
+            <input type="text" id="firstNameInput" placeholder="First Name" required>
+            <input type="text" id="lastNameInput" placeholder="Last Name" required>
+            <button type="submit">Check Documents</button>
+        </form>
+        <div id="documentSection" class="hidden">
+            <h2 id="welcomeMessage"></h2>
+            <div id="buttonList" class="button-list"></div>
+        </div>
+        <div id="errorMessage" class="hidden error"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+{
+    "users": [
+        {
+            "firstName": "John",
+            "lastName": "Doe",
+            "documents": [
+                {
+                    "documentName": "Document A",
+                    "documentURL": "https://example.com/documents/document-a"
+                },
+                {
+                    "documentName": "Document B",
+                    "documentURL": "https://example.com/documents/document-b"
+                },
+                {
+                    "documentName": "Document C",
+                    "documentURL": "https://example.com/documents/document-c"
+                }
+            ]
+        },
+        {
+            "firstName": "Jane",
+            "lastName": "Smith",
+            "documents": [
+                {
+                    "documentName": "Document X",
+                    "documentURL": "https://example.com/documents/document-x"
+                },
+                {
+                    "documentName": "Document Y",
+                    "documentURL": "https://example.com/documents/document-y"
+                }
+            ]
+        },
+        {
+            "firstName": "Alex",
+            "lastName": "Johnson",
+            "documents": [
+                {
+                    "documentName": "Document 1",
+                    "documentURL": "https://example.com/documents/document-1"
+                },
+                {
+                    "documentName": "Document 2",
+                    "documentURL": "https://example.com/documents/document-2"
+                },
+                {
+                    "documentName": "Document 3",
+                    "documentURL": "https://example.com/documents/document-3"
+                },
+                {
+                    "documentName": "Document 4",
+                    "documentURL": "https://example.com/documents/document-4"
+                }
+            ]
+        }
+    ]
+}
