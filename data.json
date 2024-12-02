@@ -3,7 +3,7 @@
         {
             "firstName": "Marquia",
             "lastName": "Burroughs",
-            "role": "caregiver",
+            "role": "Caregiver",
             "documents": [
                 {
                     "documentName": "Employee Application",
@@ -70,7 +70,7 @@
         {
             "firstName": "Melissa",
             "lastName": "Watson",
-            "role": "caregiver",
+            "role": "Caregiver",
             "documents": [
                 {
                     "documentName": "Employee Application",
@@ -137,7 +137,7 @@
         {
             "firstName": "Ash",
             "lastName": "Gurung",
-            "role": "registered nurse",
+            "role": "Registered Nurse",
             "documents": [
                 {
                     "documentName": "Employee Application",
@@ -189,7 +189,7 @@
         {
             "firstName": "Alex",
             "lastName": "Johnson",
-            "role": "office staff",
+            "role": "Office Staff",
             "documents": [
                 {
                     "documentName": "Document 1",
