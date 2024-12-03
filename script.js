@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitle = document.getElementById('pageTitle');
     const roleTag = document.getElementById('roleTag'); // Reference to the role tag
 
+    // **Document URL Mapping**
+    const documentURLMapping = {
+        "Employee Application": "https://youtube.com",
+        "Document B": "https://example.com/document-b",
+        "Document C": "https://example.com/document-c",
+        // Add more documents and their URLs here
+    };
+
     // Pantry Configuration
     const PANTRY_URL = 'https://getpantry.cloud/apiv1/pantry/001967b7-939b-4e58-a253-3b1301a854e5/basket/docdash-1'; // Replace with your Pantry URL
 
@@ -97,9 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 button.textContent = doc.documentName;
                 button.classList.add('document-button');
 
-                // Link to the document URL
-                button.href = doc.documentURL;
-                button.target = '_blank'; // Open in new tab
+                // Get the URL from the mapping
+                const url = documentURLMapping[doc.documentName];
+
+                if (url) {
+                    // Use the URL from the mapping
+                    button.href = url;
+                    button.target = '_blank'; // Open in new tab
+                } else {
+                    // Handle cases where the URL is missing
+                    button.href = '#';
+                    button.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        alert('No URL available for this document.');
+                    });
+                }
 
                 buttonList.appendChild(button);
             });
