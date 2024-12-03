@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Optional Back Button
     // const backButton = document.getElementById('backButton');
 
-    nameForm.addEventListener('submit', async (event) => {
+     nameForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         // Get user inputs
@@ -45,9 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
+            console.log('Fetched data:', data); // Log the entire data for debugging
+
             // JSONBin v3 response structure
-            // You might need to adjust based on your JSONBin settings
+            if (!data.record || !data.record.users) {
+                throw new Error('Invalid JSON structure: "users" array is missing.');
+            }
+
             const users = data.record.users;
+
+            console.log('Users:', users); // Log the users array for debugging
 
             // Search for the user
             const user = users.find(user => 
