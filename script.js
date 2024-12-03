@@ -9,14 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitle = document.getElementById('pageTitle');
     const roleTag = document.getElementById('roleTag'); // Reference to the role tag
 
-    // JSONBin Configuration
-    const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/674f2d92e41b4d34e45f25d3'; // Replace with your JSONBin URL
-    // If your bin is private, you might need to handle authentication differently
+    // Pantry Configuration
+    const PANTRY_URL = 'https://getpantry.cloud/apiv1/pantry/001967b7-939b-4e58-a253-3b1301a854e5/basket/docdash-1'; // Replace with your Pantry URL
 
-    // Optional Back Button
-    // const backButton = document.getElementById('backButton');
-
-     nameForm.addEventListener('submit', async (event) => {
+    nameForm.addEventListener('submit', async (event) => {
         event.preventDefault();
 
         // Get user inputs
@@ -37,8 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Fetch the JSON data from JSONBin
-            const response = await fetch(JSONBIN_URL);
+            // Fetch the JSON data from Pantry
+            const response = await fetch(PANTRY_URL, { method: 'GET' });
             if (!response.ok) {
                 throw new Error('Failed to load data.');
             }
@@ -47,12 +43,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log('Fetched data:', data); // Log the entire data for debugging
 
-            // JSONBin v3 response structure
-            if (!data.record || !data.record.users) {
+            // Check if users exist
+            if (!data.users || !Array.isArray(data.users)) {
                 throw new Error('Invalid JSON structure: "users" array is missing.');
             }
 
-            const users = data.record.users;
+            const users = data.users;
 
             console.log('Users:', users); // Log the users array for debugging
 
@@ -126,21 +122,4 @@ document.addEventListener('DOMContentLoaded', () => {
     function capitalize(str) {
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
-
-    // Optional Back Button Event Listener
-    /*
-    backButton.addEventListener('click', () => {
-        // Show the search form and title
-        nameForm.classList.remove('hidden');
-        pageTitle.classList.remove('hidden');
-
-        // Hide the document section and role tag
-        documentSection.classList.add('hidden');
-        roleTag.classList.add('hidden');
-
-        // Clear input fields
-        firstNameInput.value = '';
-        lastNameInput.value = '';
-    });
-    */
 });
