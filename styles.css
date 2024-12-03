@@ -195,7 +195,8 @@ p {
 
 /* Logo Img Details */
 .logo {
-  max-width: 100px;
+  max-width: 150px;
+  padding-right: 40px;
 }
 
 /* Responsive Design */
