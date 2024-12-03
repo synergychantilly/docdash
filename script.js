@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const roleTag = document.getElementById('roleTag'); // Reference to the role tag
 
     // JSONBin Configuration
-    const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/674f289cacd3cb34a8b35ca0'; // Replace with your JSONBin URL
+    const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/674f2d92e41b4d34e45f25d3'; // Replace with your JSONBin URL
     // If your bin is private, you might need to handle authentication differently
 
     // Optional Back Button
