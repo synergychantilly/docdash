@@ -9,6 +9,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const pageTitle = document.getElementById('pageTitle');
     const roleTag = document.getElementById('roleTag'); // Reference to the role tag
 
+    // JSONBin Configuration
+    const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/674f289cacd3cb34a8b35ca0'; // Replace with your JSONBin URL
+    // If your bin is private, you might need to handle authentication differently
+
     // Optional Back Button
     // const backButton = document.getElementById('backButton');
 
@@ -33,15 +37,20 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         try {
-            // Fetch the JSON data
-            const response = await fetch('data.json');
+            // Fetch the JSON data from JSONBin
+            const response = await fetch(JSONBIN_URL);
             if (!response.ok) {
                 throw new Error('Failed to load data.');
             }
+
             const data = await response.json();
 
+            // JSONBin v3 response structure
+            // You might need to adjust based on your JSONBin settings
+            const users = data.record.users;
+
             // Search for the user
-            const user = data.users.find(user => 
+            const user = users.find(user => 
                 user.firstName.toLowerCase() === firstName &&
                 user.lastName.toLowerCase() === lastName
             );
@@ -53,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 showError("Hm. We can't seem to find your information. Please notify the office if the issue persists.");
             }
         } catch (error) {
-            showError('Technical error occured, please notify the office if you received this message.');
+            showError('Technical error occurred, please notify the office if you received this message.');
             console.error(error);
         }
     });
