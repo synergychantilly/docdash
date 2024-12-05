@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // **Document URL Mapping**
     const documentURLMapping = {
-        "Employee Application": "https://youtube.com",
-        "Document B": "https://example.com/document-b",
+        "Employee Application": "https://docuseal.com/d/R9tHhdF4Q389j2",
+        "Applicant Profile": "https://docuseal.com/d/kAFt7RBfPpSspY",
         "Document C": "https://example.com/document-c",
         // Add more documents and their URLs here
     };
