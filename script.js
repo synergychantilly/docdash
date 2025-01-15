@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.classList.add('hidden');
         roleTag.classList.add('hidden');
 
-        if (!firstName || !lastName) { // Ensure email is also entered
-            showError('Please enter first name, last name.');
+        if (!firstName || !lastName) {
+            showError('Please enter first name and last name.');
             return;
         }
 
@@ -64,10 +64,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
 
             const users = data.users;
+            const user = users.find(u => u.firstName.toLowerCase() === firstName && u.lastName.toLowerCase() === lastName);
 
-            console.log('Users:', users);
-
-            if (user && user.firstName.toLowerCase() === firstName && user.lastName.toLowerCase() === lastName) {
+            if (user) {
                 displayUserDocuments(user);
                 hideSearchForm();
             } else {
