@@ -35,7 +35,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get user inputs
         const firstName = firstNameInput.value.trim().toLowerCase();
         const lastName = lastNameInput.value.trim().toLowerCase();
-        const email = emailInput.value.trim().toLowerCase(); // Get email input
 
         // Clear previous messages and buttons
         welcomeMessage.textContent = '';
