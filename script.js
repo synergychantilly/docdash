@@ -2,12 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameForm = document.getElementById('nameForm');
     const firstNameInput = document.getElementById('firstNameInput');
     const lastNameInput = document.getElementById('lastNameInput');
+    const emailInput = document.getElementById('emailInput'); // Add email input
     const documentSection = document.getElementById('documentSection');
     const welcomeMessage = document.getElementById('welcomeMessage');
     const buttonList = document.getElementById('buttonList');
     const errorMessage = document.getElementById('errorMessage');
     const pageTitle = document.getElementById('pageTitle');
-    const roleTag = document.getElementById('roleTag'); // Reference to the role tag
+    const roleTag = document.getElementById('roleTag');
 
     // **Document URL Mapping**
     const documentURLMapping = {
@@ -26,6 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get user inputs
         const firstName = firstNameInput.value.trim().toLowerCase();
         const lastName = lastNameInput.value.trim().toLowerCase();
+        const email = emailInput.value.trim().toLowerCase(); // Get email input
 
         // Clear previous messages and buttons
         welcomeMessage.textContent = '';
@@ -33,10 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.textContent = '';
         documentSection.classList.add('hidden');
         errorMessage.classList.add('hidden');
-        roleTag.classList.add('hidden'); // Hide role tag initially
+        roleTag.classList.add('hidden');
 
-        if (!firstName || !lastName) {
-            showError('Please enter both first and last names.');
+        if (!firstName || !lastName || !email) { // Ensure email is also entered
+            showError('Please enter first name, last name, and email.');
             return;
         }
 
@@ -49,28 +51,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const data = await response.json();
 
-            console.log('Fetched data:', data); // Log the entire data for debugging
+            console.log('Fetched data:', data);
 
-            // Check if users exist
             if (!data.users || !Array.isArray(data.users)) {
                 throw new Error('Invalid JSON structure: "users" array is missing.');
             }
 
             const users = data.users;
 
-            console.log('Users:', users); // Log the users array for debugging
+            console.log('Users:', users);
 
-            // Search for the user
-            const user = users.find(user => 
-                user.firstName.toLowerCase() === firstName &&
-                user.lastName.toLowerCase() === lastName
-            );
+            // Search for the user primarily by email, then fallback to name
+            const user = users.find(user => user.email.toLowerCase() === email);
 
-            if (user) {
+            if (user && user.firstName.toLowerCase() === firstName && user.lastName.toLowerCase() === lastName) {
                 displayUserDocuments(user);
-                hideSearchForm(); // Hide the search form and title
+                hideSearchForm();
             } else {
-                showError("Hm. We can't seem to find your information. Please notify the office if the issue persists.");
+                showError("Hm. We can't seem to find your information. Please ensure the information entered is correct and notify the office if the issue persists.");
             }
         } catch (error) {
             showError('Technical error occurred, please notify the office if you received this message.');
@@ -79,64 +77,51 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function displayUserDocuments(user) {
-        // Calculate the number of unsigned documents
         const unsignedDocuments = user.documents.filter(doc => !doc.isSigned);
         const numUnsigned = unsignedDocuments.length;
 
-        // Display the role tag
         roleTag.textContent = user.role;
         roleTag.classList.remove('hidden');
 
         if (numUnsigned === 0) {
-            // If no documents to sign
             welcomeMessage.textContent = "There are no documents for you to sign at this time. Thank you.";
-            buttonList.innerHTML = ''; // Clear any buttons
+            buttonList.innerHTML = '';
         } else {
             const documentText = numUnsigned === 1 ? 'document' : 'documents';
-            // Update the welcome message
             welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)}! You have ${numUnsigned} ${documentText} to sign and complete.`;
-
-            // Clear any existing buttons
             buttonList.innerHTML = '';
 
-            // Display unsigned documents only
             unsignedDocuments.forEach(doc => {
                 const button = document.createElement('a');
                 button.textContent = doc.documentName;
                 button.classList.add('document-button');
-
-                // Get the URL from the mapping
                 const url = documentURLMapping[doc.documentName];
 
                 if (url) {
-                    // Use the URL from the mapping
                     button.href = url;
-                    button.target = '_blank'; // Open in new tab
+                    button.target = '_blank';
                 } else {
-                    // Handle cases where the URL is missing
                     button.href = '#';
                     button.addEventListener('click', (e) => {
                         e.preventDefault();
                         alert('No URL available for this document.');
                     });
                 }
-
                 buttonList.appendChild(button);
             });
         }
-
         documentSection.classList.remove('hidden');
     }
 
     function hideSearchForm() {
         nameForm.classList.add('hidden');
-        pageTitle.classList.add('hidden'); // Hide the page title
+        pageTitle.classList.add('hidden');
     }
 
     function showError(message) {
         errorMessage.textContent = message;
         errorMessage.classList.remove('hidden');
-        roleTag.classList.add('hidden'); // Hide role tag if there's an error
+        roleTag.classList.add('hidden');
     }
 
     function capitalize(str) {
