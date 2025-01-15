@@ -81,24 +81,27 @@ document.addEventListener('DOMContentLoaded', () => {
     function displayUserDocuments(user) {
         const unsignedDocuments = user.documents.filter(doc => !doc.isSigned);
         const numUnsigned = unsignedDocuments.length;
-
+    
         roleTag.textContent = user.role;
         roleTag.classList.remove('hidden');
-
+    
         if (numUnsigned === 0) {
-            welcomeMessage.textContent = "There are no documents for you to sign at this time. Thank you.";
+            welcomeMessage.innerHTML = `Welcome, ${capitalize(user.firstName)}!<br>There are no documents for you to sign at this time. Thank you.`;
             buttonList.innerHTML = '';
         } else {
             const documentText = numUnsigned === 1 ? 'document' : 'documents';
-            welcomeMessage.textContent = `Welcome, ${capitalize(user.firstName)}! You have ${numUnsigned} ${documentText} to sign and complete.`;
+            welcomeMessage.innerHTML = `
+                Welcome, ${capitalize(user.firstName)}!<br>
+                You have <span style="font-weight: bold; color: #ff5722;">${numUnsigned}</span> ${documentText} to sign and complete.
+            `;
             buttonList.innerHTML = '';
-
+    
             unsignedDocuments.forEach(doc => {
                 const button = document.createElement('a');
                 button.textContent = doc.documentName;
                 button.classList.add('document-button');
                 const url = documentURLMapping[doc.documentName];
-
+    
                 if (url) {
                     button.href = url;
                     button.target = '_blank';
