@@ -67,9 +67,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
             console.log('Users:', users);
 
-            // Search for the user primarily by email, then fallback to name
-            const user = users.find(user => user.email.toLowerCase() === email);
-
             if (user && user.firstName.toLowerCase() === firstName && user.lastName.toLowerCase() === lastName) {
                 displayUserDocuments(user);
                 hideSearchForm();
