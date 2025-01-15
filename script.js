@@ -14,7 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const documentURLMapping = {
         "Employee Application": "https://docuseal.com/d/R9tHhdF4Q389j2",
         "Applicant Profile": "https://docuseal.com/d/kAFt7RBfPpSspY",
-        "Document C": "https://example.com/document-c",
+        "Competency Checklist": "https://docuseal.com/d/TKGurJ6FgACerv",
+        "References List": "https://docuseal.com/d/HJWCrNeNAqeGcA",
+        "Job Description Form": "https://docuseal.com/d/yE7cDNCj2i93y2",
+        "Hepatitis B Declination": "https://docuseal.com/d/zoHzfsjXoniAB7",
+        "Flu Vaccine Acceptance": "https://docuseal.com/d/NFoLhhgAS5JCau",
+        "VA Sworn Statement": "https://docuseal.com/d/LwJR5pZtLrryoN",
+        "Non-Medical Acknowledgement": "https://docuseal.com/d/weTLTXDiCgd7kG",
+        "Arbitration Agreement": "https://docuseal.com/d/1yYcNF68N5jufW",
+        "Confidentiality Agreement": "https://docuseal.com/d/EjgvnrDhJn6W3x",
         // Add more documents and their URLs here
     };
 
