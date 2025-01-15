@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameForm = document.getElementById('nameForm');
     const firstNameInput = document.getElementById('firstNameInput');
     const lastNameInput = document.getElementById('lastNameInput');
-    const emailInput = document.getElementById('emailInput'); // Add email input
     const documentSection = document.getElementById('documentSection');
     const welcomeMessage = document.getElementById('welcomeMessage');
     const buttonList = document.getElementById('buttonList');
@@ -44,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
         errorMessage.classList.add('hidden');
         roleTag.classList.add('hidden');
 
-        if (!firstName || !lastName || !email) { // Ensure email is also entered
-            showError('Please enter first name, last name, and email.');
+        if (!firstName || !lastName) { // Ensure email is also entered
+            showError('Please enter first name, last name.');
             return;
         }
 
